@@ -13,6 +13,19 @@ class tree {
     }
 }
 
-const array = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+const array = [1, 7, 4, 23, 8, 9, 4, 3, 5, 7, 9, 67, 6345, 324]
 
-console.log(new tree(Math.round(array.length / 2), array));
+function sortArray (arr) {
+
+    if (arr.length === 0) return "Provide an array";
+    if (arr.length === 1) return arr;
+
+
+    let mid = Math.floor(arr.length / 2);
+    const left = arr.slice(0, mid);
+    const right = arr.slice(mid, arr.length);
+
+    return buildTree(buildTree(left), buildTree(right))
+}
+
+console.log(buildTree(array));
