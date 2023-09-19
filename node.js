@@ -59,4 +59,15 @@ function mergeArray (left, right) {
     return result;
 }
 
-console.log(sortArray(array));
+
+function removeDupes (arr) {
+    const iterator = arr.values()
+
+    for (const value of iterator) {
+        if (value === value) {
+            console.log(value);
+        }
+    }
+}
+
+console.log(removeDupes(sortArray(array)));
