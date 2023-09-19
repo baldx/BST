@@ -55,19 +55,14 @@ function mergeArray (left, right) {
         iR++;
     }
 
-
     return result;
 }
 
 
 function removeDupes (arr) {
-    const iterator = arr.values()
-
-    for (const value of iterator) {
-        if (value === value) {
-            console.log(value);
-        }
-    }
+    return arr.filter((item, index) => {
+        return arr.indexOf(item) === index;
+    })
 }
 
 console.log(removeDupes(sortArray(array)));
