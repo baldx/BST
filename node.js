@@ -25,7 +25,38 @@ function sortArray (arr) {
     const left = arr.slice(0, mid);
     const right = arr.slice(mid, arr.length);
 
-    return buildTree(buildTree(left), buildTree(right))
+    return mergeArray(sortArray(left), sortArray(right))
 }
 
-console.log(buildTree(array));
+function mergeArray (left, right) {
+    const result = [];
+
+    iL = 0;
+    iR = 0;
+
+    while (iL < left.length && iR < right.length) {
+        if (left[iL] < right[iR]) {
+            result.push(left[iL]);
+            iL++;
+        }
+         else {
+            result.push(right[iR]);
+            iR++;
+         }
+    }
+
+    while (iL < left.length) {
+        result.push(left[iL]);
+        iL++;
+    }
+
+    while (iR < right.length) {
+        result.push(right[iR]);
+        iR++;
+    }
+
+
+    return result;
+}
+
+console.log(sortArray(array));
