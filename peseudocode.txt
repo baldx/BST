@@ -1,0 +1,23 @@
+loop for BST left side:
+
+create function that takes sorted array as input.
+declare mid equals to arrays length divided by 2.
+declare left equals to mid + first index divided by 2.
+declare right equals to mid + arrays length divided by 2.
+return the function recursively to the following function:
+
+create function that takse 3 inputs: root, left = null, right = null.
+declare array result that takes input.
+declare variable iL equals 0 for left side.
+declare variable iR equals 0 for right side.
+while iL is smaller than or equals to left side length.
+    if iL equals to arrays value and smaller than root node, return iL appended to result.
+    else if iL equals to arrays value and bigger than root node, return root node then iL appended to the reuslt.
+    else return nothing.
+    increment iL by 1.
+while iR is bigger or equals to mid and smaller or equals to arrays length.
+    if iR is equals to array value and smaller than root node, return iR appended to result;
+    else if iR equals to array value and bigger than root node, return root node then iR appended to the result.
+    else return nothing.
+    increment iR by 1.
+return result.
