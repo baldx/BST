@@ -65,6 +65,26 @@ function removeDupes (arr) {
     })
 }
 
+
+const cleanArray = sortArray(removeDupes(array))
+
+
+function getRoot (array) {
+
+    let mid = Math.floor(array.length / 2);
+    let left = array.slice(0, mid);
+    let right = array.slice(mid, array.length);
+
+}
+
+function buildTree (root, left, right) {
+    
+}
+
+
+console.log(cleanArray);
+console.log(buildTree(cleanArray));
+
 const prettyPrint = (node, prefix = "", isLeft = true) => {
     if (node === null) {
       return;
