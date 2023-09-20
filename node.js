@@ -75,10 +75,17 @@ function getRoot (array) {
     let left = array.slice(0, mid);
     let right = array.slice(mid, array.length);
 
+    return buildTree(getRoot(left), getRoot(right))
+
 }
 
-function buildTree (root, left, right) {
-    
+function buildTree (root, left = null, right = null) {
+    if (root === null) return 'Provide an array';
+    if (root === 1) return result.push(1);
+
+    const result = [];
+
+    let 
 }
 
 
