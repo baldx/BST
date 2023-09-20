@@ -70,12 +70,11 @@ const cleanArray = sortArray(removeDupes(array))
 
 
 function getRoot (array) {
-
     let mid = Math.floor(array.length / 2);
     let left = array.slice(0, mid);
     let right = array.slice(mid, array.length);
 
-    return buildTree(getRoot(left), getRoot(right))
+    return buildTree(getRoot(mid), getRoot(left), getRoot(right))
 
 }
 
@@ -83,14 +82,31 @@ function buildTree (root, left = null, right = null) {
     if (root === null) return 'Provide an array';
     if (root === 1) return result.push(1);
 
-    const result = [];
+    return root
 
-    let 
+    // let result = [];
+    // let iL = 0;
+    // let iR = 0;
+
+    // while (iL < left.length) {
+    //     if (iL < left.length && iL < left[iL]) result.push(left[iL]);
+    //     else if (iL < left.length && iL > left[iL]) result.push(root, left[iL]);
+    //     else return;
+    //     iL++;
+    // }
+
+    // while (iR < right.length) {
+    //     if (iR < right.left && iR < right[iR]) result.push(right[iR]);
+    //     else if (iR < right.length && iR > right[iL]) result.push(root, left[iL]);
+    //     else return;
+    //     iR++;
+    // }
+
+    // return result;
 }
 
 
-console.log(cleanArray);
-console.log(buildTree(cleanArray));
+console.log(getRoot(cleanArray));
 
 const prettyPrint = (node, prefix = "", isLeft = true) => {
     if (node === null) {
