@@ -70,11 +70,15 @@ const cleanArray = sortArray(removeDupes(array))
 
 
 function getRoot (array) {
+
+    if (array === 0) "Provide an array";
+    if (array === 1) return 1;
+
     let mid = Math.floor(array.length / 2);
     let left = array.slice(0, mid);
     let right = array.slice(mid, array.length);
 
-    return buildTree(getRoot(mid), getRoot(left), getRoot(right))
+    return getRoot(left);
 
 }
 
