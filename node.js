@@ -67,6 +67,7 @@ function removeDupes (arr) {
 const cleanArray = sortArray(removeDupes(array))
 const testArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
+
 function getRoot (array) {
     
     if (array.length === 0) return "Array is empty";
@@ -74,12 +75,13 @@ function getRoot (array) {
 
     let mid = Math.floor(array.length / 2);
     let left = array.slice(0, mid);
-    let right = array.slice(mid + 1, array.length);
+    let right = array.slice(mid, array.length);
 
-    return buildTree(array[mid], getRoot(array[left], getRoot[right]));
+    return buildTree(array[mid], getRoot(left), getRoot(right));
 }
 
-console.log(getRoot(testArray));
+console.log(cleanArray);
+console.log(getRoot(cleanArray));
 
 
 
@@ -88,10 +90,7 @@ function buildTree (root, left = null, right = null) {
     let result = []
     
     if (left === null && right === null) return [root];
-    if (root.length === 0) return 'Provide an array';
-    if (!Array.isArray(root)) return 'Provide an array'
 
-    return root
 
     // let result = [];
     // let iL = 0;
