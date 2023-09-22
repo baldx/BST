@@ -1,15 +1,8 @@
-class node {
+class Node {
     constructor(data, left, right) {
         this.data = data;
         this.left = null;
         this.right = null;
-    }
-}
-
-class tree {
-    constructor(root, array) {
-        this.root = root;
-        this.array = array;
     }
 }
 
@@ -80,37 +73,29 @@ function getRoot (array) {
     return buildTree(array[mid], getRoot(left), getRoot(right));
 }
 
-console.log(cleanArray);
-console.log(getRoot(cleanArray));
+console.log(testArray);
+console.log(getRoot(testArray));
 
 
 
 function buildTree (root, left = null, right = null) {
 
-    let result = []
+    let result = [];
+    let count;
     
     if (left === null && right === null) return [root];
+    if (root === null) return;
 
+    while (left < root) 
 
-    // let result = [];
-    // let iL = 0;
-    // let iR = 0;
+        if (root)
+        //if root node contains left node append node to result
+        //if root node contains right node append node to result
+        //if root node contains none append result
+        //increment count by 1
+    
 
-    // while (iL < left.length) {
-    //     if (iL < left.length && iL < left[iL]) result.push(left[iL]);
-    //     else if (iL < left.length && iL > left[iL]) result.push(root, left[iL]);
-    //     else return;
-    //     iL++;
-    // }
-
-    // while (iR < right.length) {
-    //     if (iR < right.left && iR < right[iR]) result.push(right[iR]);
-    //     else if (iR < right.length && iR > right[iL]) result.push(root, left[iL]);
-    //     else return;
-    //     iR++;
-    // }
-
-    // return result;
+    return result;
 }
 
 const prettyPrint = (node, prefix = "", isLeft = true) => {
