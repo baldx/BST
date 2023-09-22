@@ -58,7 +58,7 @@ function removeDupes (arr) {
 }
 
 const cleanArray = sortArray(removeDupes(array))
-const testArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
 
 
 function getRoot (array) {
@@ -77,29 +77,7 @@ function getRoot (array) {
     return root;
 }
 
-console.log(getRoot(testArray));
-
-
-
-function buildTree (root, left = null, right = null) {
-
-    let result = [];
-    let count;
-    
-    if (left === null && right === null) return [root];
-    if (root === null) return;
-
-    while (left < root) 
-
-        if (root)
-        //if root node contains left node append node to result
-        //if root node contains right node append node to result
-        //if root node contains none append result
-        //increment count by 1
-    
-
-    return result;
-}
+console.log(getRoot(cleanArray));
 
 const prettyPrint = (node, prefix = "", isLeft = true) => {
     if (node === null) {
@@ -113,4 +91,3 @@ const prettyPrint = (node, prefix = "", isLeft = true) => {
       prettyPrint(node.left, `${prefix}${isLeft ? "    " : "│   "}`, true);
     }
   };
-  
