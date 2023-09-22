@@ -63,13 +63,13 @@ const testArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
 function getRoot (array) {
     
-    if (array.length === 0) return "Array is empty";
+    if (array.length === 0) return null;
     if (array.length === 1) return array[0];
 
     let mid = Math.floor(array.length / 2);
     let root = new TreeNode(array[mid]);
     let left = array.slice(0, mid);
-    let right = array.slice(mid, array.length);
+    let right = array.slice(mid + 1);
 
     root.left = getRoot(left);
     root.right = getRoot(right)
