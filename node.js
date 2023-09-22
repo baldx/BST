@@ -1,4 +1,4 @@
-class Node {
+class TreeNode {
     constructor(data, left, right) {
         this.data = data;
         this.left = null;
@@ -67,13 +67,16 @@ function getRoot (array) {
     if (array.length === 1) return array[0];
 
     let mid = Math.floor(array.length / 2);
+    let root = new TreeNode(array[mid]);
     let left = array.slice(0, mid);
     let right = array.slice(mid, array.length);
 
-    return buildTree(array[mid], getRoot(left), getRoot(right));
+    root.left = getRoot(left);
+    root.right = getRoot(right)
+
+    return root;
 }
 
-console.log(testArray);
 console.log(getRoot(testArray));
 
 
