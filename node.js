@@ -13,7 +13,6 @@ function sortArray (arr) {
     if (arr.length === 0) return "Provide an array";
     if (arr.length === 1) return arr;
 
-
     let mid = Math.floor(arr.length / 2);
     const left = arr.slice(0, mid);
     const right = arr.slice(mid, arr.length);
@@ -59,8 +58,6 @@ function removeDupes (arr) {
 
 const cleanArray = sortArray(removeDupes(array))
 
-
-
 function getRoot (array) {
     
     if (array.length === 0) return null;
@@ -77,17 +74,16 @@ function getRoot (array) {
     return root;
 }
 
-console.log(getRoot(cleanArray));
+const newArray = getRoot(cleanArray)
 
-const prettyPrint = (node, prefix = "", isLeft = true) => {
-    if (node === null) {
-      return;
+// console.log(newArray);
+
+function insertNode (value, array) {
+    if (array === null) return array.data = value;
+    while (array.data !== null) {
+        if (array.left === value || array.right === value || array.data === value) return;
+        
     }
-    if (node.right !== null) {
-      prettyPrint(node.right, `${prefix}${isLeft ? "│   " : "    "}`, false);
-    }
-    console.log(`${prefix}${isLeft ? "└── " : "┌── "}${node.data}`);
-    if (node.left !== null) {
-      prettyPrint(node.left, `${prefix}${isLeft ? "    " : "│   "}`, true);
-    }
-  };
+}
+
+console.log(insertNode(2, newArray));
