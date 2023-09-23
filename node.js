@@ -76,14 +76,17 @@ function getRoot (array) {
 
 const newArray = getRoot(cleanArray)
 
-// console.log(newArray);
+function insertNode (root, value) {
+    
+    let newNode = new TreeNode(value);
 
-function insertNode (value, array) {
-    if (array === null) return array.data = value;
-    while (array.data !== null) {
-        if (array.left === value || array.right === value || array.data === value) return;
-        
+    if (root === null) return newNode;
+    else {
+        if (root.data > value) root.left = insertNode(root.left, value);
+        else if (root.data < value) root.right = insertNode(root.right, value);
     }
+
+    return root;
 }
 
-console.log(insertNode(2, newArray));
+console.log(insertNode(newArray, 10));
