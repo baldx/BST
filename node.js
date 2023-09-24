@@ -58,7 +58,7 @@ function removeDupes (arr) {
 
 const cleanArray = sortArray(removeDupes(array))
 
-function getRoot (array) {
+function buildTree (array) {
     
     if (array.length === 0) return null;
     if (array.length === 1) return array[0];
@@ -115,5 +115,3 @@ function minValue (node) {
     }
     return node.data;
 }
-
-console.log(insertNode(newArray, 9));
