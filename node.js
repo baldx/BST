@@ -68,13 +68,13 @@ function buildTree (array) {
     let left = array.slice(0, mid);
     let right = array.slice(mid + 1);
 
-    root.left = getRoot(left);
-    root.right = getRoot(right)
+    root.left = buildTree(left);
+    root.right = buildTree(right)
 
     return root;
 }
 
-const newArray = getRoot(cleanArray)
+const newBST = buildTree(cleanArray)
 
 function insertNode (root, value) {
     
@@ -114,4 +114,13 @@ function minValue (node) {
         node = node.left;
     }
     return node.data;
+}
+
+function findValue (root, value) {
+    if (root === null) return false;
+    if (root === value || root.data === value) return true;
+
+    if (value < root.data) return findValue(root.left, value);
+    else return findValue(root.right, value);
+
 }
