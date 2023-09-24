@@ -89,4 +89,31 @@ function insertNode (root, value) {
     return root;
 }
 
-console.log(insertNode(newArray, 10));
+function removeNode (root, value) {
+
+    if (root === null) return null;
+    
+    if (value < root.data) root.left = removeNode(root.left, value);
+    else if (value > root.data) root.right = removeNode(root.right, value);
+    else {
+        if (root.data === value) value = null;
+        if (root !== value) return root.data;
+    
+        if (root.left === null) return root.right
+        if (root.left === null) return root.left
+
+       root.data = minValue(root.right);
+
+       root.right = removeNode(root.right, root.data)
+    }
+    return root;
+}
+
+function minValue (node) {
+    while (node.left !== null) {
+        node = node.left;
+    }
+    return node.data;
+}
+
+console.log(insertNode(newArray, 9));
