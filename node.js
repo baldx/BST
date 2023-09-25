@@ -138,3 +138,12 @@ function maxheight (root1, root2) {
     if (root1 > root2) return root1;
     else return root2;
 }
+
+function depth (root) {
+    if (root == null) return 0;
+
+    let left = depth(root.left);
+    let right = depth(root.right);
+
+    return Math.max(left, right) + 1;
+}
