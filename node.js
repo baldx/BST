@@ -122,5 +122,19 @@ function findValue (root, value) {
 
     if (value < root.data) return findValue(root.left, value);
     else return findValue(root.right, value);
+}
 
+function height (root) {
+    if (root === null) return -1;
+    if (root.left === null || root.right === null) return 0;
+    else {
+        let leftHeight = height(root.left);
+        let rightHeight = height(root.right);
+        return maxheight(leftHeight, rightHeight) + 1;
+    }
+}
+
+function maxheight (root1, root2) {
+    if (root1 > root2) return root1;
+    else return root2;
 }
