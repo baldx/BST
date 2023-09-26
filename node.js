@@ -147,3 +147,29 @@ function depth (root) {
 
     return Math.max(left, right) + 1;
 }
+
+function levelOrder (root) {
+
+    if (root === null) return [];
+
+    let queue = [];
+    let result = [];
+
+    queue.push(root);
+
+    while (queue.length !== 0) {
+        let current = queue.shift();
+
+        if (current !== null) {
+            result.push(current.data)
+    
+            if (root.left !== null) {
+                queue.push(current.left);
+            }
+            if (root.right !== null) {
+                queue.push(current.right);
+            }
+        } else return queue
+    }
+    return result;
+}
