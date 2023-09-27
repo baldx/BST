@@ -191,4 +191,16 @@ function inOrder (root) {
     return result;
 }
 
-console.log(inOrder(newBST));
+function postOrder (root) {
+    let result = [];
+
+    function traverse (node) {
+        if (node === null) return;
+        traverse(node.left);
+        traverse(node.right);
+        result.push(node.data);
+    }
+    traverse(root);
+    return result;
+}
+
