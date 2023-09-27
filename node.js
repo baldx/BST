@@ -152,6 +152,7 @@ function depth (root) {
     return Math.max(left, right) + 1;
 }
 
+
 function levelOrder (root) {
 
     if (root === null) return [];
@@ -216,3 +217,11 @@ function postOrder (root) {
     traverse(root);
     return result;
 }
+
+function isBalanced (root) {
+    if (depth(root.left) === depth(root.right)) return true;
+    else if (depth(root.left) + 1 === depth(root.right) || depth(root.left) === depth(root.right) + 1) return true;
+    else return false;
+}
+
+console.log(isBalanced(newBST));
