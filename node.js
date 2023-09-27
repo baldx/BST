@@ -196,6 +196,19 @@ function preOrder (root) {
 
     function traverse (node) {
         if (node === null) return;
+        result.push(node.data);
+        traverse(node.left);
+        traverse(node.right);
+    }
+    traverse(root);
+    return result;
+}
+
+function postOrder (root) {
+    let result = [];
+
+    function traverse (node) {
+        if (node === null) return;
         traverse(node.left);
         traverse(node.right);
         result.push(node.data);
@@ -203,4 +216,3 @@ function preOrder (root) {
     traverse(root);
     return result;
 }
-
