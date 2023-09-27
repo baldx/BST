@@ -224,4 +224,28 @@ function isBalanced (root) {
     else return false;
 }
 
-console.log(isBalanced(newBST));
+function reBalance (tree) {
+    let sortedValues = [];
+    reBalanceInOrder(tree, sortedValues);
+    let BST = buildTreeReBalance(sortedValues);
+    return BST;
+}
+
+function reBalanceInOrder (node, sortedValues) {
+    if (node === null) return;
+    reBalanceInOrder(node.left, sortedValues);
+    sortedValues.push(node.data);
+    reBalanceInOrder(node.right, sortedValues);
+}
+
+function buildTreeReBalance (sortedValues) {
+    if (sortedValues.length === 0) return null;
+
+    const mid = Math.floor(sortedValues.length / 2);
+    const newNode = new TreeNode(sortedValues[mid]);
+    newNode.left = buildTreeReBalance(sortedValues.slice(0, mid));
+    newNode.right = buildTreeReBalance(sortedValues.slice(mid + 1));
+    
+    return newNode;
+}
+
