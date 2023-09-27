@@ -59,19 +59,23 @@ function removeDupes (arr) {
 const cleanArray = sortArray(removeDupes(array))
 
 function buildTree (array) {
+    function branches (left, right) {
+
+        if (left > right) return null;
+
+        const mid = Math.floor((left + right) / 2);
+        const root = new TreeNode(array[mid]);
     
+        root.left = branches(left , mid - 1);
+        root.right = branches(mid + 1, right);
+
+        return root;
+    }
+
     if (array.length === 0) return null;
     if (array.length === 1) return array[0];
 
-    let mid = Math.floor(array.length / 2);
-    let root = new TreeNode(array[mid]);
-    let left = array.slice(0, mid);
-    let right = array.slice(mid + 1);
-
-    root.left = buildTree(left);
-    root.right = buildTree(right)
-
-    return root;
+    return branches(0, array.length -1)
 }
 
 const newBST = buildTree(cleanArray)
@@ -173,3 +177,18 @@ function levelOrder (root) {
     }
     return result;
 }
+
+function inOrder (root) {
+    let result = [];
+
+    function traverse (node) {
+        if (node === null) return;
+        traverse(node.left);
+        result.push(node.data);
+        traverse(node.right);
+    }
+    traverse(root);
+    return result;
+}
+
+console.log(inOrder(newBST));
