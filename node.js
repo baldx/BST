@@ -191,7 +191,7 @@ function inOrder (root) {
     return result;
 }
 
-function postOrder (root) {
+function preOrder (root) {
     let result = [];
 
     function traverse (node) {
